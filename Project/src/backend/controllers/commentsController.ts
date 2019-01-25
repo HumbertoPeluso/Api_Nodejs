@@ -20,7 +20,7 @@ export function postCommentsHandler(commentsRepo:Repository<Comments>){
                 const newComment = req.body;
             const result = joi.validate(newComment, commentsDetailsSchema)
             if(result.error){
-                res.status(400).send({msg:"comment is not valid"});
+                res.status(400).send({msg:"This comment is not valid"});
             }else{
                 const comments = await commentsRepo.save(newComment);
                 res.json(comments);
